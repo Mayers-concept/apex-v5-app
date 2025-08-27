@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+    color: #e0e0e0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    height: 90vh;
+    background: rgba(20, 20, 30, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid rgba(100, 100, 255, 0.2);
+}
+
+.header {
+    padding: 20px;
+    background: rgba(30, 30, 50, 0.8);
+    border-bottom: 1px solid rgba(100, 100, 255, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    font-size: 24px;
+    background: linear-gradient(45deg, #00ff88, #0088ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.mode-indicator {
+    padding: 8px 16px;
+    background: rgba(0, 100, 255, 0.2);
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+#current-mode {
+    font-weight: bold;
+    color: #00ff88;
+}
+
+.chat-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message {
+    padding: 15px;
+    border-radius: 10px;
+    animation: fadeIn 0.3s ease;
+}
+
+.message.user {
+    background: rgba(0, 100, 255, 0.1);
+    border-left: 3px solid #0088ff;
+    margin-left: 50px;
+}
+
+.message.apex {
+    background: rgba(0, 255, 100, 0.1);
+    border-left: 3px solid #00ff88;
+    margin-right: 50px;
+}
+
+.message-header {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.message-content {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.input-container {
+    padding: 20px;
+    background: rgba(30, 30, 50, 0.8);
+    border-top: 1px solid rgba(100, 100, 255, 0.2);
+    display: flex;
+    gap: 10px;
+}
+
+#user-input {
+    flex: 1;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(100, 100, 255, 0.3);
+    border-radius: 25px;
+    color: #e0e0e0;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#user-input:focus {
+    border-color: #00ff88;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+#send-btn {
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #00ff88, #0088ff);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+#send-btn:hover {
+    transform: scale(1.05);
+}
+
+#send-btn:active {
+    transform: scale(0.95);
+}
+
+.status-bar {
+    padding: 10px 20px;
+    background: rgba(20, 20, 40, 0.9);
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+    }
+    
+    .message.user,
+    .message.apex {
+        margin: 0;
+    }
+}
