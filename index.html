@@ -2,29 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <title>APEX_V5 Intelligence</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>APEX_V5</h1>
-            <div class="mode-indicator">Mode: <span id="current-mode">α</span></div>
+            <div class="logo-section">
+                <h1>APEX_V5</h1>
+                <span class="version">v5.0</span>
+            </div>
+            <div class="mode-indicator">
+                <span class="mode-label">Mode:</span>
+                <span id="current-mode">α</span>
+                <div class="mode-pulse"></div>
+            </div>
         </div>
         
         <div class="chat-container">
             <div id="messages" class="messages"></div>
+            <div id="typing-indicator" class="typing-indicator" style="display: none;">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        
+        <div class="quick-actions">
+            <button class="quick-btn" data-action="explain">Explain</button>
+            <button class="quick-btn" data-action="solve">Solve</button>
+            <button class="quick-btn" data-action="create">Create</button>
+            <button class="quick-btn" data-action="analyze">Analyze</button>
         </div>
         
         <div class="input-container">
-            <input type="text" id="user-input" placeholder="Ask anything...">
-            <button id="send-btn">→</button>
+            <input type="text" id="user-input" placeholder="Ask anything..." autocomplete="off">
+            <button id="send-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
         </div>
         
         <div class="status-bar">
-            <span id="complexity">Complexity: 0.0</span>
-            <span id="memory">Memory: 0 items</span>
+            <span id="complexity">◉ Simple</span>
+            <span id="context">◈ Ready</span>
+            <span id="memory">◊ Active</span>
         </div>
     </div>
     
